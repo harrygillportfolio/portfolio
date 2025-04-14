@@ -1,0 +1,20 @@
+.scroll-reveal {
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* Staggered animation for lists */
+.stagger-reveal > *:nth-child(1) { transition-delay: 100ms; }
+.stagger-reveal > *:nth-child(2) { transition-delay: 200ms; }
+.stagger-reveal > *:nth-child(3) { transition-delay: 300ms; }
+.stagger-reveal > *:nth-child(4) { transition-delay: 400ms; }
+.stagger-reveal > *:nth-child(5) { transition-delay: 500ms; }
+.stagger-reveal > *:nth-child(6) { transition-delay: 600ms; }
+.stagger-reveal > *:nth-child(7) { transition-delay: 700ms; }
+.stagger-reveal > *:nth-child(8) { transition-delay: 800ms; }
+.stagger-reveal > *:nth-child(9) { transition-delay: 900ms; }
+.stagger-reveal > *:nth-child(10) { transition-delay: 1000ms; } 

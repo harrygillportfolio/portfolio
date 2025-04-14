@@ -1,0 +1,340 @@
+.easter-egg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.game-navigation {
+  position: fixed;
+  top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(20, 20, 35, 0.7);
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+}
+
+.current-game-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  min-width: 120px;
+  text-align: center;
+}
+
+.nav-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-arrow-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+}
+
+.nav-arrow-btn:active {
+  transform: scale(0.95);
+  background: linear-gradient(135deg, rgba(86, 7, 173, 0.9), rgba(27, 97, 222, 0.9));
+}
+
+.nav-arrow-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-out, opacity 0.3s ease;
+}
+
+.nav-arrow-btn:active::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2);
+  transition: transform 0.2s ease-out, opacity 0.1s ease;
+}
+
+/* Side navigation arrows */
+.nav-arrow-left, .nav-arrow-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));
+  color: white;
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
+  }
+}
+
+.nav-arrow-left {
+  left: 20px;
+}
+
+.nav-arrow-right {
+  right: 20px;
+}
+
+.nav-arrow-left:hover, .nav-arrow-right:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(106, 17, 203, 0.6);
+}
+
+.nav-arrow-left:active, .nav-arrow-right:active {
+  transform: translateY(-50%) scale(0.95);
+  background: linear-gradient(135deg, rgba(86, 7, 173, 0.9), rgba(27, 97, 222, 0.9));
+}
+
+.easter-egg-game {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgba(20, 20, 35, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.game-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.close-game-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-game-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.game-score {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.score-label:first-child {
+  color: #e91e63;
+}
+
+.score-label:last-child {
+  color: #2196f3;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.game-status {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 30px;
+}
+
+.game-board {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.board-row {
+  display: flex;
+  gap: 5px;
+}
+
+.game-square {
+  width: 90px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.game-square:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.square-x {
+  color: #e91e63;
+}
+
+.square-o {
+  color: #2196f3;
+}
+
+.reset-game-btn {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.reset-game-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+}
+
+.game-instructions {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .easter-egg-overlay {
+    padding: 10px;
+  }
+  
+  .nav-arrow-left, .nav-arrow-right {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+  
+  .nav-arrow-left {
+    left: 10px;
+  }
+  
+  .nav-arrow-right {
+    right: 10px;
+  }
+  
+  .easter-egg-game {
+    max-width: 320px;
+    padding: 15px;
+  }
+  
+  .game-board {
+    max-width: 240px;
+    gap: 5px;
+  }
+  
+  .game-square {
+    width: 75px;
+    height: 75px;
+    font-size: 1.6rem;
+  }
+  
+  .game-header h2 {
+    font-size: 1.5rem;
+  }
+} 

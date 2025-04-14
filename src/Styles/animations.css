@@ -1,0 +1,84 @@
+/* Scroll Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.animate-on-scroll.active {
+  opacity: 1;
+}
+
+/* Fade Up Animation */
+.fade-up {
+  transform: translateY(50px);
+}
+
+.fade-up.active {
+  transform: translateY(0);
+}
+
+/* Fade Down Animation */
+.fade-down {
+  transform: translateY(-50px);
+}
+
+.fade-down.active {
+  transform: translateY(0);
+}
+
+/* Fade Left Animation */
+.fade-left {
+  transform: translateX(-50px);
+}
+
+.fade-left.active {
+  transform: translateX(0);
+}
+
+/* Fade Right Animation */
+.fade-right {
+  transform: translateX(50px);
+}
+
+.fade-right.active {
+  transform: translateX(0);
+}
+
+/* Zoom In Animation */
+.zoom-in {
+  transform: scale(0.9);
+}
+
+.zoom-in.active {
+  transform: scale(1);
+}
+
+/* Zoom Out Animation */
+.zoom-out {
+  transform: scale(1.1);
+}
+
+.zoom-out.active {
+  transform: scale(1);
+}
+
+/* Rotate Animation */
+.rotate {
+  transform: rotate(-10deg);
+}
+
+.rotate.active {
+  transform: rotate(0);
+}
+
+/* Staggered Animations */
+.stagger > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger > *:nth-child(6) { transition-delay: 0.6s; }
+.stagger > *:nth-child(7) { transition-delay: 0.7s; }
+.stagger > *:nth-child(8) { transition-delay: 0.8s; }
+.stagger > *:nth-child(9) { transition-delay: 0.9s; }
+.stagger > *:nth-child(10) { transition-delay: 1s; } 

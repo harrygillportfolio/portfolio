@@ -1,0 +1,61 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px) scale(0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top.visible {
+  opacity: 0.6;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-to-top:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-to-top:hover:before {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 70px;
+    font-size: 1rem;
+  }
+} 

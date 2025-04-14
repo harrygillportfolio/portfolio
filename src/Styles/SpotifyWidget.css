@@ -1,0 +1,466 @@
+.spotify-widget {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  max-height: calc(100vh - 40px);
+}
+
+/* Light mode Spotify widget */
+[data-theme="light"] .spotify-widget {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.spotify-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .spotify-widget:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.spotify-widget h3 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+[data-theme="light"] .spotify-widget h3 {
+  color: #333;
+}
+
+.spotify-widget p {
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+[data-theme="light"] .spotify-widget p {
+  color: #666;
+}
+
+.spotify-widget a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .spotify-widget a {
+  color: var(--primary-color);
+}
+
+.spotify-widget a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.spotify-current {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.spotify-current:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+.spotify-album-art {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.spotify-album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spotify-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.spotify-overlay i {
+  color: #1DB954;
+  font-size: 16px;
+}
+
+.spotify-info {
+  flex-grow: 1;
+  margin-left: 12px;
+  overflow: hidden;
+}
+
+.spotify-now-playing {
+  font-size: 11px;
+  color: #1DB954;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.spotify-track-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-artist {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-toggle {
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.spotify-recommendations {
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.spotify-recommendations h4 {
+  font-size: 14px;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.recommendation-item:hover {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.recommendation-album-art {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.recommendation-album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recommendation-info {
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.recommendation-name {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recommendation-artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.spotify-link {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #1DB954;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.spotify-link:hover {
+  background-color: #1ed760;
+}
+
+.spotify-link i {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.spotify-loading,
+.spotify-error,
+.spotify-not-playing {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spotify-loading i,
+.spotify-error i,
+.spotify-not-playing i {
+  font-size: 30px;
+  color: #1DB954;
+}
+
+.spotify-icon-loading {
+  animation: pulse 1.5s infinite;
+}
+
+.spotify-error i {
+  color: #ff5252;
+}
+
+.spotify-error span,
+.spotify-not-playing span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .spotify-widget {
+    bottom: 70px; /* Position above footer on mobile */
+    left: 10px;
+    width: 280px;
+  }
+}
+
+/* Hover states for mouse devices only */
+@media (hover: hover) {
+  .spotify-current:hover {
+    background-color: rgba(40, 40, 40, 0.9);
+  }
+  
+  .recommendation-item:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+  }
+}
+
+.spotify-login {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.spotify-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.spotify-header i {
+  font-size: 30px;
+  color: #1DB954;
+}
+
+.spotify-header span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.spotify-login-btn {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+}
+
+.spotify-login-btn:hover {
+  background-color: #1ed760;
+}
+
+.no-recommendations {
+  padding: 15px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+.recommendation-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.spotify-hide-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.spotify-hide-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spotify-minimized {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1DB954;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  transition: transform 0.2s ease;
+}
+
+.spotify-minimized:hover {
+  transform: scale(1.1);
+}
+
+.spotify-minimized i {
+  font-size: 20px;
+}
+
+.spotify-show-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(29, 185, 84, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+
+.spotify-show-button:hover {
+  transform: scale(1.1);
+}
+
+.spotify-show-button i {
+  font-size: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+} 

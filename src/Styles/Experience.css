@@ -1,0 +1,36 @@
+/* Styling for the Experience page */
+.experience-page {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .experience-page h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .experience-page p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .experience-item {
+    margin-bottom: 40px;
+  }
+  
+  .experience-item h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .experience-item p {
+    font-size: 18px;
+    color: #666;
+  }
+  
