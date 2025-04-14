@@ -1,5 +1,5 @@
 // Configuration
-const SPOTIFY_CLIENT_ID = process.env.REACT_APP_RESUME_CHAT_ID;
+const SPOTIFY_CLIENT_ID = '1cbb5cbb12f245b4a57b7988aaa94b0e';
 const SPOTIFY_REDIRECT_URI = process.env.NODE_ENV === 'development' 
   ? 'https://meharvir.github.io/Mehar'  
   : window.location.origin;
