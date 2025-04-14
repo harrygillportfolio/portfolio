@@ -54,7 +54,7 @@ const Navbar = () => {
             <span className="logo-text">Mehar</span>
           </Link>
           <a 
-            href="/Randhawa-Meharvir Resume.pdf" 
+            href={process.env.PUBLIC_URL + '/Randhawa-Meharvir Resume.pdf'}
             download="Randhawa-Meharvir Resume.pdf"
             className="btn btn-resume"
           >
