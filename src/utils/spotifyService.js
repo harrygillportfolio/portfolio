@@ -1,8 +1,6 @@
 // Configuration
 const SPOTIFY_CLIENT_ID = '1cbb5cbb12f245b4a57b7988aaa94b0e';
-const SPOTIFY_REDIRECT_URI = process.env.NODE_ENV === 'development' 
-  ? 'https://meharvir.github.io/Mehar'  
-  : window.location.origin;
+const SPOTIFY_REDIRECT_URI = 'https://meharvir.github.io/Mehar'
 const SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const SPOTIFY_API_ENDPOINT = 'https://api.spotify.com/v1';
 const SPOTIFY_SCOPES = [
