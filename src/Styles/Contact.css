@@ -5,7 +5,7 @@
 /* Base Styles */
 .contact-page {
   min-height: 100vh;
-  background: var(--bg-color);
+  background: transparent;
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
@@ -13,7 +13,7 @@
 
 /* Contact Container */
 .contact-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
@@ -27,36 +27,68 @@
   position: relative;
 }
 
+/* Title Tab Section */
+.title-tab {
+  background: rgba(255, 255, 255, 0.10);   /* Slightly more visible */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  padding: 6rem 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .title-tab {
+    padding: 4rem 0 2rem 0;
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+  }
+  .title-content {
+    padding: 0 1rem;
+  }
+}
+
+
+
 .header-text {
   display: inline-block;
   position: relative;
 }
 
 .gradient-title {
-  font-size: 4rem;
+  font-size: 4.5rem; /* Matches .projects-hero h1 */
   font-weight: 800;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(45deg, 
-    var(--primary-color), 
-    var(--secondary-color), 
-    var(--accent-color));
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  animation: titleFloat 3s ease-in-out infinite;
-  position: relative;
+  animation: titleFloat 6s ease-in-out infinite;
   display: inline-block;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
+
 .header-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Matches .projects-hero .hero-subtitle */
+  font-weight: 400;
   color: var(--text-color);
   opacity: 0.8;
   max-width: 600px;
-  margin: 0 auto;
-  animation: subtitleReveal 1s ease forwards 0.5s;
+  margin: 0 auto 1.5rem auto;
+  text-align: center;
+  animation: subtitleFloat 6s ease-in-out infinite;
   animation-fill-mode: both;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-shadow: none;
 }
+
 
 /* Contact Content */
 .contact-content {
@@ -203,7 +235,7 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   box-sizing: border-box;
 }
 
@@ -458,7 +490,7 @@
 
 @media (max-width: 480px) {
   .gradient-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .header-subtitle {
@@ -473,3 +505,91 @@
     min-height: 150px;
   }
 }
+
+@media (max-width: 600px) {
+  .contact-header,
+  .title-tab,
+  .contact-container,
+  .title-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+    text-align: center !important;
+  }
+
+  .gradient-title,
+  .header-subtitle {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+
+/* Desktop (default): push content below navbar */
+.contact-page,
+.title-tab {
+  padding-top: 4rem;
+}
+
+/* Mobile: push content below navbar (smaller padding) */
+@media (max-width: 600px) {
+  .contact-page,
+  .title-tab {
+    padding-top: 4rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero, .title-tab {
+    display: grid !important;
+    place-items: center !important;
+    min-height: 100px; /* or as needed */
+    padding-top: 0rem !important;
+    padding-bottom: 2.4rem !important;
+  }
+}
+
+/* Perfect vertical & horizontal centering for the contact card on desktop and mobile */
+.title-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;     /* Adjust this value for the minimum card height you want */
+  padding-top: 4rem;     /* Remove big top/bottom padding */
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .title-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 200px; /* Adjust as needed for your layout */
+    padding-top: 3rem !important;  /* Only what’s needed for navbar! */
+    padding-bottom: 1.2rem !important;
+    box-sizing: border-box !important;
+  }
+  .title-content {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+.send-icon {
+  color: var(--primary-color);
+  font-size: 1.8rem; /* Or whatever size you prefer */
+}
+

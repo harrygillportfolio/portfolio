@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 import Particles from 'react-tsparticles';
 import { loadSlim } from "tsparticles-slim";
 import '../Styles/Home.css';
+import { SiAdobe, SiFigma, SiCanva, SiHubspot, SiReact, SiJavascript} from 'react-icons/si';
+import { DiVisualstudio } from "react-icons/di";
+import Flag from 'react-world-flags';
+import { FaCertificate, FaGraduationCap } from 'react-icons/fa';
+import { TbDeviceAnalytics } from "react-icons/tb";
+import { RiEmotionLine } from "react-icons/ri";
+import { PiStrategyBold } from "react-icons/pi";
+
 
 const Home = () => {
   const projectsRef = useRef(null);
 
   const scrollToProjects = () => {
-    const offset = 100; // Adjust this value to control how far above the section it stops
+    const offset = 100;
     const elementPosition = projectsRef.current?.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -49,13 +57,17 @@ const Home = () => {
           <div className="shape"></div>
         </div>
         <div className="hero-text-container">
-          <h1 className="name-title">Meharvir Randhawa</h1>
-          <p className="hero-subtitle">CS + Data Science at UNC</p>
+          <h1 className="name-title">Harry Gill</h1>
+
+          <div className="shimmer-wrapper">
+            <p className="hero-subtitle">Creator • Leader • Marketer</p>
+            <div className="shimmer-bar"></div>
+          </div>
+
           <div className="cta-buttons">
             <Link to="/Projects" className="cta-button">
               <span className="button-content">
-                <i className="fas fa-code"></i>
-                View Projects
+                <i className="fas fa-folder-open"></i> Creations
               </span>
             </Link>
             <Link to="/contact" className="cta-button outline">
@@ -74,91 +86,89 @@ const Home = () => {
             <div className="about-text">
               <h2 className="section-title">Introduction</h2>
               <p>
-                {`I'm a Computer Science student at the University of North Carolina at Chapel Hill, minoring in Data Science with an expected graduation in December 2025. With a strong foundation in software engineering and data analytics, I combine technical expertise with proven leadership abilities.`.split(' ').map((word, index) => (
+                {`I recently earned my Bachelor of Science in Business Entrepreneurship from the W. P. Carey School of Business at Arizona State University, graduating in May 2025. With a strong foundation in digital marketing and creative strategy, I blend business acumen with a deep passion for visual storytelling and content creation.`.split(' ').map((word, index) => (
                   <span key={index}>{word} </span>
                 ))}
               </p>
               <p>
-                {`My passion for data analytics and software development has been demonstrated through impactful projects and internships. At Beats by Dre, I conducted extensive data analysis on over 10,000 product reviews, leading to key product improvements. I bring a unique blend of technical skills, analytical thinking, and project management expertise, consistently delivering innovative solutions while maintaining inclusive team environments.`.split(' ').map((word, index) => (
+                {`My journey into videography began at age 12, sparking a lifelong dedication to media production. Since then, I’ve evolved from editing meme mashups and sports highlights to leading viral content strategies across platforms like YouTube, TikTok, and Instagram. Through collaborations with creators such as ThatWasEpic, Yung Gravy, and bbno$, my work has reached billions of viewers—driven by a mix of cinematic editing, narrative intuition, and platform-native strategy.`.split(' ').map((word, index) => (
                   <span key={index}>{word} </span>
                 ))}
               </p>
               <p>
-                {`Looking ahead, I aim to leverage these skills to drive meaningful change across tech-driven industries—building scalable solutions that empower users, enhance decision-making, and bridge the gap between data and real-world impact. With a strong interest in diverse endeavors ranging from fintech and healthcare innovation to artificial intelligence and entrepreneurship, I’m passionate about applying my knowledge to solve complex challenges, create accessible technologies, and make a lasting, positive difference across communities and sectors.`.split(' ').map((word, index) => (
+                {`From building brand identities to managing digital communities, my experience spans content development, influencer partnerships, and social media growth within the entertainment and media landscape. I approach every project with a balance of creative instinct and business insight, crafting content that not only engages but scales. I aim to continue bridging creativity and strategy to drive impactful campaigns and meaningful brand experiences—helping ideas resonate, grow, and make a lasting impression.`.split(' ').map((word, index) => (
                   <span key={index}>{word} </span>
                 ))}
               </p>
             </div>
-            
+
             <div className="about-text">
-              <h2 className="section-title">Technical Skills</h2>
+              <h2 className="section-title">Skills</h2>
             </div>
-            
+
             <div className="skills-container">
               <div className="skill-box">
-                <h3><i className="fas fa-desktop"></i>Frontend Development</h3>
+                <h3><i className="fa-solid fa-chart-simple"></i>Marketing & Technical</h3>
                 <div className="skill-tags">
-                  <span><i className="fab fa-react"></i>React</span>
-                  <span><i className="fab fa-js"></i>JavaScript</span>
-                  <span><i className="fab fa-html5"></i>HTML5</span>
-                  <span><i className="fab fa-css3-alt"></i>CSS3</span>
-                  <span><i className="fab fa-js-square"></i>TypeScript</span>
-                  <span><i className="fab fa-bootstrap"></i>Bootstrap</span>
-                </div>
-              </div>
-              <div className="skill-box">
-                <h3><i className="fas fa-server"></i>Backend Development</h3>
-                <div className="skill-tags">
-                  <span><i className="fab fa-python"></i>Python</span>
-                  <span><i className="fab fa-java"></i>Java</span>
-                  <span><i className="fas fa-c"></i>C++</span>
-                  <span><i className="fas fa-database"></i>SQL</span>
-                  <span><i className="fab fa-node-js"></i>Node.js</span>
-                  <span><i className="fas fa-database"></i>MongoDB</span>
-                  <span><i className="fas fa-plug"></i>REST APIs</span>
-                </div>
-              </div>
-              <div className="skill-box">
-                <h3><i className="fas fa-chart-line"></i>Finance</h3>
-                <div className="skill-tags">
-                  <span><i className="fas fa-chart-bar"></i>Financial Analysis</span>
-                  <span><i className="fas fa-chart-line"></i>Corporate Finance</span>
+                  <span><i className="fa-solid fa-globe"></i>SEO</span>
+                  <span><i className="fa-solid fa-magnifying-glass-chart"></i>SEM</span>
+                  <span><i className="fa-solid fa-robot"></i>Marketing Automation</span>
                   <span><i className="fas fa-shield-alt"></i>Risk Management</span>
-                  <span><i className="fas fa-chart-line"></i>Quantitative Finance</span>
-                  <span><i className="fas fa-search-dollar"></i>Market Research</span>
-                  <span><i className="fas fa-exchange-alt"></i>Trading</span>
-                  <span><i className="fas fa-chart-line"></i>Financial Modeling</span>
+                  <span><i className="fas fa-chart-bar"></i>Financial Analysis</span>
+                  <span><TbDeviceAnalytics /> Quantitative Finance</span>
+                  <span><i className="fa-solid fa-brush"></i>Branding</span>
+                  <span><i className="fa-solid fa-chess-knight"></i>Creative Strategy</span>
+                  <span><SiAdobe /> Adobe Creative Suite</span>
+                  <span><SiFigma /> Figma</span>
+                  <span><SiCanva /> Canva</span>
+                  <span><SiHubspot /> HubSpot</span>
+                  <span><SiReact /> React</span>
+  <span><SiJavascript /> JavaScript</span>
+                   <span><DiVisualstudio /> Visual Studio</span>
                 </div>
               </div>
               <div className="skill-box">
-                <h3><i className="fas fa-brain"></i>Data Analytics</h3>
+                <h3><i className="fas fa-users-cog"></i>Strategic Leadership & Management</h3>
                 <div className="skill-tags">
-                  <span><i className="fas fa-robot"></i>Machine Learning</span>
-                  <span><i className="fas fa-chart-pie"></i>Data Visualization</span>
-                  <span><i className="fas fa-square-root-alt"></i>Statistical Analysis</span>
-                  <span><i className="fas fa-code"></i>NumPy</span>
-                  <span><i className="fas fa-code"></i>Pandas</span>
-                  <span><i className="fas fa-code"></i>Scikit-learn</span>
-                  <span><i className="fas fa-code"></i>Matplotlib</span>
-                  <span><i className="fas fa-code"></i>Seaborn</span>
-                  <span><i className="fas fa-code"></i>R</span>
-                  <span><i className="fas fa-chart-area"></i>Tableau</span>
-                  <span><i className="fas fa-chart-bar"></i>Power BI</span>
-                  <span><i className="fas fa-chart-area"></i>Alteryx</span>
+                  <span><i className="fas fa-bolt"></i>Transformational Leadership</span>
+                  <span><i className="fas fa-tasks"></i>Project Management</span>
+                  <span><i className="fas fa-handshake"></i>Negotiation</span>
+                  <span><i className="fas fa-sync-alt"></i>Change Management</span>
+                  <span><i className="fas fa-user-astronaut"></i>Charisma</span>
                 </div>
               </div>
               <div className="skill-box">
-                <h3><i className="fas fa-chart-line"></i>Additional Tools & Skills</h3>
+                <h3><i className="fas fa-comments"></i>Soft Skills</h3>
                 <div className="skill-tags">
-                  <span><i className="fab fa-git"></i> Git</span>
-                  <span><i className="fab fa-docker"></i> Docker</span>
-                  <span><i className="fas fa-tasks"></i> JIRA</span>
-                  <span><i className="fas fa-table"></i> Excel</span>
-                  <span><i className="fas fa-linux"></i> Linux</span>
-                  <span><i className="fas fa-terminal"></i> Bash</span>
-                  <span><i className="fas fa-project-diagram"></i> Astah</span>
-                  <span><i className="fas fa-tasks"></i> Trello</span>
-                  <span><i className="fas fa-chart-line"></i> Google Analytics</span>
+                  <span><i className="fas fa-comment-dots"></i>Communication</span>
+                  <span><PiStrategyBold /> Strategic Thinking</span>
+                  <span><i className="fas fa-sync-alt"></i>Adaptability</span>
+                  <span><i className="fas fa-lightbulb"></i>Problem-Solving</span>
+                  <span><RiEmotionLine /> Emotional Intelligence</span>
+                </div>
+              </div>
+              <div className="skill-box">
+                <h3><i className="fas fa-language"></i>Languages</h3>
+                <div className="skill-tags">
+                  <span><Flag code="US" style={{ width: '20px', marginRight: '6px' }} /> English</span>
+                  <span><Flag code="IN" style={{ width: '20px', marginRight: '6px' }} /> Hindi</span>
+                  <span><Flag code="IN" style={{ width: '20px', marginRight: '6px' }} /> Punjabi</span>
+                </div>
+              </div>
+              <div className="skill-box">
+                <h3><FaCertificate /> Certifications</h3>
+                <div className="skill-tags">
+                  <span>
+                    <FaGraduationCap />{' '}
+                    <a
+                      href="https://skillshop.exceedlms.com/student/award/inNxoytYPhFzCzb4rDhw4MWJ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'inherit', textDecoration: 'underline' }}
+                    >
+                      Fundamentals of Digital Marketing – Google Digital Garage
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>

@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import '../Styles/About.css';
 import Particles from '../Components/Particles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faVideo,
+  faCamera,
+  faMusic,
+  faDumbbell,
+  faUsers,
+  faBookOpenReader,
+} from '@fortawesome/free-solid-svg-icons';
 
 const About = () => {
   const educationRef = useRef(null);
   const experienceRef = useRef(null);
-  const leadershipRef = useRef(null);
-  const certificationsRef = useRef(null);
-  const musicRef = useRef(null);
-  const hobbiesRef = useRef(null);
   const volunteeringRef = useRef(null);
-  const languagesRef = useRef(null);
-  const futureGoalsRef = useRef(null);
+  const hobbiesRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,13 +34,8 @@ const About = () => {
     const refs = [
       educationRef,
       experienceRef,
-      leadershipRef,
-      certificationsRef,
-      musicRef,
-      hobbiesRef,
       volunteeringRef,
-      languagesRef,
-      futureGoalsRef,
+      hobbiesRef,
     ];
 
     refs.forEach((ref) => {
@@ -59,70 +58,116 @@ const About = () => {
       <Particles />
       <div className="title-tab">
         <div className="title-content">
-          <h1 className="page-title">About Me</h1>
-          <p className="page-subtitle">Passionate Computer Science Student</p>
+          <h1 className="page-title">Who I Am</h1>
+          <p className="page-subtitle">PHX roots. Lit by passion. Always evolving.</p>
         </div>
       </div>
+
+      {/* 1. Beyond the Office */}
+      <section className="hobbies-section" ref={hobbiesRef}>
+        <div className="section-header">
+          <h2>Beyond the Office</h2>
+          <p>Things that keep life fun</p>
+        </div>
+        <div className="hobbies-grid">
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faVideo} />
+            <h3>Videography</h3>
+            <p>I love shooting and editing videos that tell a story or capture a vibe, I'm always chasing that cinematic look.</p>
+          </div>
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faCamera} />
+            <h3>Photography</h3>
+            <p>Snapping clean shots is my thing - I'm always looking for "that angle".</p>
+          </div>
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faMusic} />
+            <h3>Music Creation</h3>
+            <p>Making music with my friends helps me get into my element.</p>
+          </div>
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faDumbbell} />
+            <h3>Gym</h3>
+            <p>Helps me keep the stress off and the strength up.</p>
+          </div>
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faUsers} />
+            <h3>Family</h3>
+            <p>Family's everything - they keep me real and help me recharge.</p>
+          </div>
+          <div className="hobby-item">
+            <FontAwesomeIcon icon={faBookOpenReader} />
+            <h3>Learning</h3>
+            <p>I'm always learning something new - whether it's tech, business, or random deep dives on YouTube.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. A Look at My Experience */}
       <section className="experience-section" ref={experienceRef}>
         <div className="section-header">
-          <h2 className="gradient-text">Work Experience</h2>
-          <p className="section-subtitle">My professional journey</p>
+          <h2 className="gradient-text">A Look at My Experience</h2>
+          <p className="section-subtitle">Where I've Made an Impact</p>
         </div>
         <div className="experience-grid">
+          {/* FloCove */}
           <div className="experience-item">
             <div className="experience-icon">
-              <i className="fas fa-chalkboard-teacher"></i>
+              <i className="fas fa-ship"></i>
             </div>
             <div className="experience-content">
-              <h3>Private Tutor</h3>
-              <h4>Varsity Tutors</h4>
-              <p className="experience-date">October 2024 - Present</p>
-              <p className="experience-location">Remote</p>
+              <h3>Co-Founder & CEO</h3>
+              <h4><a href="http://flocove.com" target="_blank" rel="noopener noreferrer">FloCove</a></h4>
+              <p className="experience-date">March 2025 – Present</p>
+              <p className="experience-location">Phoenix, Arizona</p>
               <ul>
-                <li>Provided personalized tutoring in Computer Science and Math, leading to an average 10-20% improvement</li>
-                <li>Monitored student progress with Excel, adjusting tutoring methods and focus areas to ensure growth in all areas</li>
+                <li>Steer the company’s strategic vision and oversee daily operations, focusing on marketing strategies that drive growth and client engagement</li>
+                <li>Collaborate with leadership to identify new opportunities and expand service offerings</li>
               </ul>
             </div>
           </div>
+
+          {/* ThatWasEpic */}
+          <div className="experience-item">
+            <div className="experience-icon">
+              <i className="fas fa-video"></i>
+            </div>
+            <div className="experience-content">
+              <h3>Creative Marketing Director</h3>
+              <h4><a href="https://thatwasepic.com/" target="_blank" rel="noopener noreferrer">ThatWasEpic</a></h4>
+              <p className="experience-date">December 2023 – January 2025</p>
+              <p className="experience-location">Tempe, Arizona</p>
+              <ul>
+                <li>Produced 50+ content pieces viewed over 50M times on YouTube and hundreds of millions across TikTok, Instagram, and Facebook</li>
+                <li>Boosted profits by 40% through strategic brand collaborations and partnerships</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Toor Designs */}
           <div className="experience-item">
             <div className="experience-icon">
               <i className="fas fa-chart-line"></i>
             </div>
             <div className="experience-content">
-              <h3>Business Data Analyst & Digital Marketing Intern</h3>
-              <h4>Hukam Studios</h4>
-              <p className="experience-date">September 2024 - December 2024</p>
-              <p className="experience-location">Tempe, Arizona</p>
+              <h3>Marketing Intern</h3>
+              <h4><a href="http://toordesigns.com/" target="_blank" rel="noopener noreferrer">Toor Designs & Marketing</a></h4>
+              <p className="experience-date">January 2023 – January 2025</p>
+              <p className="experience-location">Long Beach, California</p>
               <ul>
-                <li>Managed marketing initiatives by coordinating tasks across platforms, ensuring timely completion of tasks</li>
-                <li>Assisted in website optimization by analyzing SEO metrics and implementing data-driven improvements</li>
-              </ul>
-            </div>
-          </div>
-          <div className="experience-item">
-            <div className="experience-icon">
-              <i className="fas fa-headphones"></i>
-            </div>
-            <div className="experience-content">
-              <h3>Consumer Insights Data Analytics Extern</h3>
-              <h4>Beats by Dre</h4>
-              <div className="experience-meta">
-                <p className="experience-date">July 2024 - September 2024</p>
-                <p className="experience-location">Remote</p>
-              </div>
-              <ul className="experience-details">
-                <li>Led data collection and analysis of 10,000+ product reviews using Python, Matplotlib, NumPy, and AI, identifying key patterns and anomalies to improve data quality and inform product decisions</li>
-                <li>Developed a comprehensive capstone project with stakeholders, featuring advanced visualizations (histograms, box plots, word clouds) using Matplotlib, Seaborn, and Scikit-Learn, resulting in 3 actionable product improvements based on customer feedback</li>
+                <li>Managed marketing for HempLand USA with a $100k budget across multiple digital platforms</li>
+                <li>Drove a 30% profit increase and 15% customer growth through strategic media and partnership development</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 3. Academics */}
       <section className="education-section" ref={educationRef}>
         <div className="section-header">
-          <h2 className="gradient-text">Education</h2>
-          <p className="section-subtitle">My academic background</p>
+          <h2 className="gradient-text">Academics</h2>
+          <p className="section-subtitle">Grounded in entrepreneurship</p>
         </div>
         <div className="education-grid">
           <div className="education-item">
@@ -131,20 +176,20 @@ const About = () => {
             </div>
             <div className="education-content">
               <div className="education-header">
-                <h3>University of North Carolina at Chapel Hill</h3>
+                <h3>Arizona State University – W. P. Carey School of Business</h3>
               </div>
               <div className="education-details">
                 <div className="education-degree">
-                  <h4>Bachelor of Science in Computer Science</h4>
-                  <p className="education-minor">Minor in Data Science</p>
+                  <h4>Bachelor of Science in Business Entrepreneurship</h4>
+                  <p className="education-minor">Dean’s List: Fall 2021 – Spring 2025</p>
                 </div>
                 <div className="education-meta">
                   <div className="education-location">
-                    <p>Chapel Hill, North Carolina</p>
+                    <p>Tempe, Arizona</p>
                     <i className="fas fa-map-marker-alt"></i>
                   </div>
                   <div className="education-graduation">
-                    <p>Expected Graduation: December 2025</p>
+                    <p>Graduation Date: May 2025</p>
                     <i className="fas fa-calendar-alt"></i>
                   </div>
                 </div>
@@ -152,54 +197,14 @@ const About = () => {
               <div className="coursework-section">
                 <h4><i className="fas fa-book"></i> Relevant Coursework</h4>
                 <div className="coursework-grid">
-                  <div className="course-item">
-                    <i className="fas fa-code"></i>
-                    <span>Software Engineering</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-shield-alt"></i>
-                    <span>Information Assurance</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-network-wired"></i>
-                    <span>Internet Services and Protocols</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-project-diagram"></i>
-                    <span>Data Structures and Algorithms</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-cubes"></i>
-                    <span>Object-Oriented Programming</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-brain"></i>
-                    <span>Advanced Algorithms</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-microchip"></i>
-                    <span>Digital Circuit Design</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-chart-bar"></i>
-                    <span>Statistics</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-calculator"></i>
-                    <span>Multivariable Calculus</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-language"></i>
-                    <span>Models of Languages and Computation</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-desktop"></i>
-                    <span>Computer Architecture</span>
-                  </div>
-                  <div className="course-item">
-                    <i className="fas fa-chart-line"></i>
-                    <span>Macroeconomics</span>
-                  </div>
+                  <div className="course-item"><i className="fas fa-bullhorn"></i><span>Marketing</span></div>
+                  <div className="course-item"><i className="fas fa-users-cog"></i><span>Management</span></div>
+                  <div className="course-item"><i className="fas fa-boxes"></i><span>Supply Chain</span></div>
+                  <div className="course-item"><i className="fas fa-user-tie"></i><span>Leadership</span></div>
+                  <div className="course-item"><i className="fas fa-balance-scale"></i><span>Business Law</span></div>
+                  <div className="course-item"><i className="fas fa-chart-bar"></i><span>Economics</span></div>
+                  <div className="course-item"><i className="fas fa-hand-holding-usd"></i><span>Finance</span></div>
+                  <div className="course-item"><i className="fas fa-lightbulb"></i><span>Entrepreneurship</span></div>
                 </div>
               </div>
             </div>
@@ -207,313 +212,40 @@ const About = () => {
         </div>
       </section>
 
-      <section className="leadership-section" ref={leadershipRef}>
-  <div className="section-header">
-    <h2 className="gradient-text">Leadership Experience</h2>
-    <p className="section-subtitle">My role in student organizations</p>
-  </div>
-
-  <div className="leadership-grid">
-
-    {/* PSA Leadership Item */}
-    <div
-      className="leadership-item"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-      }}
-    >
-      <div
-        className="leadership-icon"
-        style={{ marginBottom: "10px", fontSize: "24px" }}
-      >
-        <i className="fas fa-users"></i>
-      </div>
-      <div className="leadership-content">
-        <h3 style={{ margin: "5px 0" }}>Founder/President</h3>
-        <h4 style={{ margin: "5px 0", fontWeight: "normal" }}>
-          Punjabi Student Association (PSA)
-        </h4>
-        <p
-          className="leadership-date"
-          style={{ marginBottom: "10px", fontStyle: "italic" }}
-        >
-          August 2022 – May 2024
-        </p>
-        <ul style={{ textAlign: "left" }}>
-          <li>
-            Established and managed a cultural club of 75+ members to enhance community engagement and awareness
-          </li>
-          <li>
-            Organized 20+ events in accordance with campus regulation while overseeing financial operations
-          </li>
-          <li>
-            Collaborated with other student organizations to host cultural showcases and educational panels
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Pediatric System Leadership Item */}
-    <div
-      className="leadership-item"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-      }}
-    >
-      <div
-        className="leadership-icon"
-        style={{ marginBottom: "10px", fontSize: "24px" }}
-      >
-        <i className="fas fa-project-diagram"></i>
-      </div>
-      <div className="leadership-content">
-        <h3 style={{ margin: "5px 0" }}>Team Lead</h3>
-        <h4 style={{ margin: "5px 0", fontWeight: "normal" }}>
-          Automated Pediatric Doctor’s Office System
-        </h4>
-        <p
-          className="leadership-date"
-          style={{ marginBottom: "10px", fontStyle: "italic" }}
-        >
-          January 2024 – May 2024
-        </p>
-        <ul style={{ textAlign: "left" }}>
-          <li>
-            Led a cross-functional team of 5 in designing a Java-based desktop application using Agile methodologies
-          </li>
-          <li>
-            Coordinated sprint planning and issue tracking via Jira to ensure timely delivery
-          </li>
-          <li>
-            Oversaw project scope and team communication across UI/UX, backend, and database development
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-
-      <section className="certifications-section" ref={certificationsRef}>
-        <div className="section-header">
-          <h2 className="gradient-text">Honors, Certifications & Involvements</h2>
-          <p className="section-subtitle">My achievements and professional development</p>
-        </div>
-        <div className="certifications-grid">
-          <div className="certification-item">
-            <div className="certification-icon">
-              <i className="fas fa-award"></i>
-            </div>
-            <div className="certification-content">
-              <h3>Academic Honors</h3>
-              <ul>
-                <li>Dean's List</li>
-                <li>New American University Provost Scholar</li>
-                <li>AP Scholar</li>
-                <li>Student of the Year</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="certification-item">
-            <div className="certification-icon">
-              <i className="fas fa-certificate"></i>
-            </div>
-            <div className="certification-content">
-              <h3>Certifications</h3>
-              <ul>
-                <li>Preparatory Certificate in Finance and Financial Markets (CFI)</li>
-                <li>Agile Project Management Badge (PMI)</li>
-                <li>Predictive Project Management Badge (PMI)</li>
-                <li>Business Analysis & Process Management</li>
-                <li>Introduction to Data Analysis using Microsoft Excel</li>
-                <li>Investment Risk Management</li>
-                <li>Search Engine Optimization</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="certification-item">
-            <div className="certification-icon">
-              <i className="fas fa-users"></i>
-            </div>
-            <div className="certification-content">
-              <h3>Involvements</h3>
-              <ul>
-                <li>Minority Business Student Alliance</li>
-                <li>Quantitative Finance Association</li>
-                <li>Carolina Analytics and Data Science</li>
-                <li>Undergraduate International Business Club</li>
-                <li>Ai Consulting Club</li>
-                <li>Intramural Basketball</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* 4. Relevant Projects */}
       <section className="volunteering-section" ref={volunteeringRef}>
         <div className="section-header">
-          <h2 className="gradient-text">Volunteering</h2>
-          <p className="section-subtitle">My community involvement</p>
+          <h2 className="gradient-text">Relevant Projects</h2>
+          <p className="section-subtitle">Where strategy met execution</p>
         </div>
         <div className="volunteering-grid">
           <div className="volunteering-item">
-            <div className="volunteering-icon">
-              <i className="fas fa-hands-helping"></i>
-            </div>
+            <div className="volunteering-icon"><i className="fas fa-search-dollar"></i></div>
             <div className="volunteering-content">
-              <h3>Community Volunteer</h3>
-              <h4>Guru Nanak Dwara</h4>
-              <p className="volunteering-date">January 2018 - Present</p>
-              <p className="volunteering-location">Phoenix, Arizona</p>
+              <h3>SEO & SEM Campaign</h3>
+              <h4>Local AMPM</h4>
+              <p className="volunteering-date">March 2024 – May 2024</p>
+              <p className="volunteering-location">Tempe, Arizona</p>
               <ul>
-                <li>Volunteered on Sundays to support the community by preparing and serving food, maintaining the space, and assisting with events</li>
-                <li>Helped create a welcoming environment by working alongside others to ensure everything ran smoothly</li>
+                <li>Boosted organic website traffic by 40% through on-page and off-page SEO strategies</li>
+                <li>Improved search rankings for 10+ high-value keywords to top 3 positions</li>
+                <li>Managed Google Ads campaigns, increasing CTR by 20% and online sales by 15%</li>
               </ul>
             </div>
           </div>
-
           <div className="volunteering-item">
-            <div className="volunteering-icon">
-              <i className="fas fa-utensils"></i>
-            </div>
+            <div className="volunteering-icon"><i className="fas fa-mobile-alt"></i></div>
             <div className="volunteering-content">
-              <h3>Volunteer</h3>
-              <h4>Midwest Food Bank</h4>
-              <p className="volunteering-date">January 2021 - September 2022</p>
-              <p className="volunteering-location">Gilbert, Arizona</p>
+              <h3>Product Launch Marketing Plan</h3>
+              <h4>New Mobile App</h4>
+              <p className="volunteering-date">August 2024 – October 2024</p>
+              <p className="volunteering-location">Remote</p>
               <ul>
-                <li>Organized donated items and prepared them for distribution to charitable organizations</li>
-                <li>Spearheaded packing efforts to support fellow volunteers in maintaining an optimal working environment</li>
+                <li>Led go-to-market strategy, aligning product and marketing teams to exceed user targets</li>
+                <li>Developed product messaging and social media campaigns with high engagement</li>
+                <li>Generated 5,000+ user sign-ups within the first month post-launch</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="languages-section" ref={languagesRef}>
-        <div className="section-header">
-          <h2 className="gradient-text">Languages</h2>
-          <p className="section-subtitle">My linguistic abilities</p>
-        </div>
-        <div className="languages-grid">
-          <div className="language-item">
-            <div className="language-icon">
-              <i className="fas fa-language"></i>
-            </div>
-            <div className="language-content">
-              <h3>English</h3>
-              <div className="proficiency-bar">
-                <div className="proficiency-level" style={{ width: '100%' }}></div>
-              </div>
-              <p className="proficiency-text">Native</p>
-            </div>
-          </div>
-          <div className="language-item">
-            <div className="language-icon">
-              <i className="fas fa-language"></i>
-            </div>
-            <div className="language-content">
-              <h3>Punjabi</h3>
-              <div className="proficiency-bar">
-                <div className="proficiency-level" style={{ width: '100%' }}></div>
-              </div>
-              <p className="proficiency-text">Native</p>
-            </div>
-          </div>
-          <div className="language-item">
-            <div className="language-icon">
-              <i className="fas fa-language"></i>
-            </div>
-            <div className="language-content">
-              <h3>Spanish</h3>
-              <div className="proficiency-bar">
-                <div className="proficiency-level" style={{ width: '60%' }}></div>
-              </div>
-              <p className="proficiency-text">Intermediate</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="future-goals-section" ref={futureGoalsRef}>
-        <div className="section-header">
-          <h2 className="gradient-text">Future Goals & What I Bring</h2>
-          <p className="section-subtitle">My vision and contributions</p>
-        </div>
-        <div className="future-goals-grid">
-          <div className="future-goals-item">
-            <div className="future-goals-icon">
-              <i className="fas fa-rocket"></i>
-            </div>
-            <div className="future-goals-content">
-              <h3>Career Aspirations</h3>
-              <ul className="future-goals-list">
-                <li><i className="fas fa-check-circle"></i> Build a career where I can use my skills to make a positive impact</li>
-                <li><i className="fas fa-check-circle"></i> Contribute to innovative projects that make a positive impact</li>
-                <li><i className="fas fa-check-circle"></i> Mentor junior developers and share knowledge with the community</li>
-              </ul>
-            </div>
-          </div>
-          <div className="future-goals-item">
-            <div className="future-goals-icon">
-              <i className="fas fa-users"></i>
-            </div>
-            <div className="future-goals-content">
-              <h3>What I Bring to the Team</h3>
-              <ul className="future-goals-list">
-                <li><i className="fas fa-star"></i> Strong problem-solving skills and analytical mindset</li>
-                <li><i className="fas fa-star"></i> Experience with modern web technologies and best practices</li>
-                <li><i className="fas fa-star"></i> Ability to work effectively in collaborative environments</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="hobbies-section" ref={hobbiesRef}>
-        <div className="section-header">
-          <h2>Hobbies & Interests</h2>
-          <p>Beyond coding and technology</p>
-        </div>
-        <div className="hobbies-grid">
-          <div className="hobby-item">
-            <i className="fas fa-basketball-ball"></i>
-            <h3>Basketball</h3>
-            <p>Playing and following college basketball</p>
-          </div>
-          <div className="hobby-item">
-            <i className="fas fa-music"></i>
-            <h3>Music Production</h3>
-            <p>Creating beats and sharing on <a href="https://www.youtube.com/@MehrBeatss" target="_blank" rel="noopener noreferrer">YouTube</a></p>
-          </div>
-          <div className="hobby-item">
-            <i className="fas fa-book"></i>
-            <h3>Reading</h3>
-            <p>Exploring new technologies and ideas</p>
-          </div>
-          <div className="hobby-item">
-            <i className="fas fa-dumbbell"></i>
-            <h3>Fitness</h3>
-            <p>Staying active and healthy</p>
-          </div>
-          <div className="hobby-item">
-            <i className="fas fa-plane"></i>
-            <h3>Traveling</h3>
-            <p>Exploring new cultures, places, and perspectives</p>
-          </div>
-          <div className="hobby-item">
-            <i className="fas fa-utensils"></i>
-            <h3>Cooking</h3>
-            <p>Experimenting with new recipes</p>
           </div>
         </div>
       </section>

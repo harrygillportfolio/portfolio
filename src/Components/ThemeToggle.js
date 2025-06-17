@@ -2,22 +2,15 @@ import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import '../Styles/ThemeToggle.css';
 
-const RandomThemeButton = () => {
-  const { currentTheme, applyRandomTheme, applyDarkTheme } = useTheme();
+const ThemeToggle = () => {
+  const { currentTheme, cycleThemeForward } = useTheme();
 
   return (
     <div className="theme-buttons">
       <button 
-        className="dark-theme-button"
-        onClick={applyDarkTheme}
-        aria-label="Dark theme"
-      >
-        <i className="fas fa-moon"></i>
-      </button>
-      <button 
         className="random-theme-button"
-        onClick={applyRandomTheme}
-        aria-label="Randomize theme"
+        onClick={cycleThemeForward}
+        aria-label="Cycle to next theme"
       >
         <i className="fas fa-palette"></i>
         <span>{currentTheme.name}</span>
@@ -26,4 +19,4 @@ const RandomThemeButton = () => {
   );
 };
 
-export default RandomThemeButton; 
+export default ThemeToggle;

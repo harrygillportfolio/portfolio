@@ -1,10 +1,14 @@
+// SpotifyWidget.js
 import React, { useState, useEffect } from 'react';
 import '../Styles/SpotifyWidget.css';
+import { useTheme } from '../context/ThemeContext'; // <<-- ADD THIS
 
 const SpotifyWidget = () => {
   const [isHidden, setIsHidden] = useState(false);
+  const { currentTheme } = useTheme(); // <<-- ADD THIS
 
-  // Check if widget was previously hidden
+  // ...same useEffect and handlers as before...
+
   useEffect(() => {
     const hiddenState = localStorage.getItem('spotify_widget_hidden');
     if (hiddenState === 'true') {
@@ -12,13 +16,11 @@ const SpotifyWidget = () => {
     }
   }, []);
 
-  // Hide widget
   const hideWidget = () => {
     setIsHidden(true);
     localStorage.setItem('spotify_widget_hidden', 'true');
   };
 
-  // Show widget
   const showWidget = () => {
     setIsHidden(false);
     localStorage.setItem('spotify_widget_hidden', 'false');
@@ -27,7 +29,14 @@ const SpotifyWidget = () => {
   return (
     <>
       {isHidden ? (
-        <div className="spotify-minimized" onClick={showWidget}>
+        <div
+          className="spotify-minimized"
+          onClick={showWidget}
+          style={{
+  background: currentTheme.primary,
+  transition: 'background 0.3s cubic-bezier(.4,0,.2,1)',
+}}
+        >
           <i className="fab fa-spotify"></i>
         </div>
       ) : (
@@ -37,7 +46,7 @@ const SpotifyWidget = () => {
           </button>
           <div className="spotify-embed">
             <iframe
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1FoLIGnrFmVsWh?utm_source=generator"
+              src="https://open.spotify.com/embed/playlist/3sEVIE1KhCwdJGVTHdNopU?utm_source=generator"
               width="100%"
               height="352"
               frameBorder="0"
@@ -52,4 +61,4 @@ const SpotifyWidget = () => {
   );
 };
 
-export default SpotifyWidget; 
+export default SpotifyWidget;

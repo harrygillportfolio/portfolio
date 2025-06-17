@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../Styles/Contact.css';
 import Particles from '../Components/Particles';
 import emailjs from '@emailjs/browser';
+import { TbUfo } from "react-icons/tb";
+
+
 
 function Contact() {
   const form = useRef();
@@ -16,7 +19,7 @@ function Contact() {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("zBp_F0L6V-4umu8nT");
+    emailjs.init("bMO2mbB2XNuNdaChG");
   }, []);
 
   const handleChange = (e) => {
@@ -32,8 +35,8 @@ function Contact() {
     setSubmitStatus({ type: '', message: '' });
 
     // EmailJS configuration
-    const serviceID = 'service_qf8bylr';
-    const templateID = 'template_a49i77p';
+    const serviceID = 'service_cta5wrj';
+    const templateID = 'template_tpseysr';
     
     // Create template parameters
     const templateParams = {
@@ -42,7 +45,7 @@ function Contact() {
       subject: formData.subject,
       message: formData.message,
       time: new Date().toLocaleString(),
-      to_email: 'meharvir.randhawa@outlook.com'
+      to_email: 'hsgill2@asu.edu'
     };
 
     emailjs.send(serviceID, templateID, templateParams)
@@ -67,15 +70,19 @@ function Contact() {
   };
 
   return (
-    <div className="contact-page">
-      <Particles />
-      <div className="contact-container">
-        <div className="contact-header">
+  <div className="contact-page">
+    <Particles />
+    <div className="contact-container">
+      <div className="contact-header">
+        <div className="title-tab">
           <div className="header-text">
-            <h1 className="gradient-title">Get in Touch</h1>
-            <p className="header-subtitle">I'd love to hear from you! Feel free to reach out.</p>
+            <h1 className="gradient-title">Beam Me a Signal</h1>
+            <p className="header-subtitle">
+              Wherever you are, reach out—I'm here to connect. 
+            </p>
           </div>
         </div>
+      </div>
 
         <div className="contact-content">
           <form className="contact-form" onSubmit={handleSubmit} ref={form}>
@@ -136,8 +143,8 @@ function Contact() {
               className="submit-button"
               disabled={isSubmitting}
             >
-              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-              <i className="fas fa-paper-plane"></i>
+              <span>{isSubmitting ? 'Sending...' : 'Beam me up'}</span>
+              <TbUfo className="send-icon" />
             </button>
           </form>
         </div>

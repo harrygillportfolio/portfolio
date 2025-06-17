@@ -23,14 +23,8 @@ const Projects = () => {
     setCurrentPosition({ x: 0, y: 0 });
   };
 
-  const zoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 0.25, 3));
-  };
-
-  const zoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
-  };
-
+  const zoomIn = () => setZoomLevel(prev => Math.min(prev + 0.25, 3));
+  const zoomOut = () => setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
   const resetZoom = () => {
     setZoomLevel(1);
     setCurrentPosition({ x: 0, y: 0 });
@@ -54,9 +48,7 @@ const Projects = () => {
     }
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+  const handleMouseUp = () => setIsDragging(false);
 
   useEffect(() => {
     if (selectedImage) {
@@ -69,98 +61,184 @@ const Projects = () => {
     };
   }, [selectedImage]);
 
-  const projects = [
-    {
-      title: "Top Investor Portfolio",
-      description: "Developed a web application for tracking and analyzing top investors' portfolios. Integrated stock forecasting using Python libraries such as NumPy, yFinance, Prophet, and Plotly to deliver 4-year projections with interactive, data-driven visualizations.",
-      image: process.env.PUBLIC_URL + "/Stock Forecast Image.png",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "Python", "Streamlit", "yFinance", "Prophet", "Plotly"],
-      github: "https://github.com/Meharvir/top-investor-portfolio",
-      live: "https://top-investor-demo.com"
-    },
-    {
-      title: "Beats by Dre Capstone",
-      description: "Conducted data collection and cleaning on 10,000+ product reviews, identifying patterns and anomalies using Python, NumPy, and AI models. Performed EDA and sentiment analysis to derive customer insights that led to 3 key product improvements. Presented findings to stakeholders with visualizations using Matplotlib, Seaborn, and Scikit-learn.",
-      image: process.env.PUBLIC_URL + "/Capstone Project Image.png",
-      technologies: ["Python", "NLP", "EDA", "Sentiment Analysis", "NumPY", "Scikit-learn", "Matplotlib", "Seaborn", "Jupyter Notebooks","Google Colab"],
-      live: "https://colab.research.google.com/drive/1c_btqi5pklQFZvTXRVLCQVITqwifZvuj?usp=sharing"
-    },
-    {
-      title: "Song Downloader",
-      description: "A user-friendly application where users can simply search for the type of song they want and specify how many songs they'd like to download. The app supports high-quality audio downloads, all within a clean and intuitive interface, making it easy to get the music you love.",
-      image: process.env.PUBLIC_URL + "/Song Downloader Project.png",
-      technologies: ["Python", "FFmpeg", "API Integration", "GUI", "Audio Processing"],
-      github: "https://github.com/Meharvir/song-downloader",
-      live: "https://song-downloader-demo.com"
-    },
-    {
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and CSS animations. Features include smooth transitions, interactive elements, and a clean design.",
-      image: process.env.PUBLIC_URL + "/Portfolio Website Image.png",
-      technologies: ["React", "CSS", "JavaScript", "Responsive Design","ReactRouter","EmailJS","Git"],
-      github: "https://github.com/Meharvir/portfolio",
-      live: "https://meharvir.github.io/portfolio"
-    }
-  ];
+ const projects = [
+  {
+    title: "My Marketing Company",
+    isFloCove: true,
+    description: (
+      <>
+        I founded{' '}
+        <a
+          href="https://flocove.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontWeight: 700, color: "#fff", textDecoration: "none" }}
+        >
+          FloCove
+        </a>{' '}
+        as a full-service marketing brand that blends bold creativity with data-driven strategy. From cinematic video production to social media campaigns, I lead the creation of high-impact digital content and immersive brand experiences—rooted in storytelling, design, and community. Inspired by the ocean, I aim to build fresh, forward-thinking strategies that make waves and leave a lasting impression across media, entertainment, and business.
+      </>
+    ),
+    video: process.env.PUBLIC_URL + "/flocove-reel.mp4"
+  },
+  {
+  title: "My Videography",
+  description: (
+    <>
+      I blend cinematic visuals, bold storytelling, and strategic content to create more than just videos—I build experiences.<br />
+      Through my videography brand and YouTube channel{' '}
+      <a
+        href="https://www.youtube.com/@95high"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          fontWeight: 700,
+          color: "#fff",
+          textDecoration: "none"
+        }}
+      >
+        95High
+      </a> 
+      {', I showcase music videos, creative visuals, and branded content that push artistic boundaries. Every project is rooted in clear, intentional vision—designed to elevate voices, captivate audiences, and leave a lasting impact.'}
+    </>
+  ),
+  video: process.env.PUBLIC_URL + "/bts-reel.mp4",
+  isVideography: true,
+},
+ {
+  title: "My Photography",
+  description: (
+    <>
+      My photography brings together color, light, and composition to capture authentic stories and emotion.<br />
+      I focus on cinematic visuals—portraits, landscapes, and everyday moments—delivered in crisp, high-resolution quality. Every photo is crafted to highlight the beauty and atmosphere of the moment.
+    </>
+  ),
+  video: process.env.PUBLIC_URL + "/photography-reel.mp4",
+  isPhotography: true, // (optional, use if you want to style differently)
+},
+  {
+  title: "My Video Editing",
+  description: (
+    <>
+      I’ve edited and published viral content for{" "}
+      <a
+        href="https://www.youtube.com/@ThatWasEpic11"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          fontWeight: 700,
+          color: "#fff",
+          textDecoration: "none"
+        }}
+      >
+        ThatWasEpic
+      </a>
+      {", with video views averaging 1–7 million+ per upload. My work contributed to the channel’s continued growth, boosting audience engagement and driving increased merchandise-related revenue through strategic content planning and execution."}
+    </>
+  ),
+  video: process.env.PUBLIC_URL + "/videoediting-reel.mp4",
+  isVideoEditing: true,
+},
+
+
+];
+
 
   return (
     <div className="projects-page">
       <Particles />
       <div className="projects-hero">
         <div className="hero-content">
-          <h1>My Projects</h1>
-          <p className="hero-subtitle">A collection of my work and creative endeavors</p>
+          <h1>Content Creation & Marketing</h1>
+          <p className="hero-subtitle">A blend of my creative storytelling and strategic marketing</p>
         </div>
       </div>
 
       <div className="projects-section">
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className="project-item">
-              <div className="project-image-container" onClick={() => openImageModal(project.image)}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="project-image"
-                  onError={(e) => {
-                    console.error(`Error loading image: ${project.image}`);
-                    e.target.style.display = 'none';
-                  }}
-                />
-                <div className="image-zoom-hint">
-                  <i className="fas fa-search-plus"></i>
-                </div>
-              </div>
-              <div className="project-content">
-                <h2 className="project-title">{project.title}</h2>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tech">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index}>{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+  <div
+    key={index}
+    className={`project-item ${index === projects.length - 1 ? 'full-width' : ''}`}
+  >
+    {project.video ? (
+      <div className="project-video-container">
+        <video
+          className={`project-video${project.isVideography ? " videography-video" : ""}`}
+          src={project.video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          style={
+            project.isVideography
+              ? { width: "100%", height: "auto", aspectRatio: "1280/720", maxWidth: "1280px", maxHeight: "720px", borderRadius: "12px", background: "#0b1222", display: "block", objectFit: "fill" }
+              : { width: '100%', aspectRatio: '16/9', borderRadius: '12px', background: "#0b1222", display: 'block' }
+          }
+        />
+        <div className="project-content">
+          <h2 className="project-title">{project.title}</h2>
+          {/* Render FloCove's description as a div so the link is clickable */}
+          {project.isFloCove ? (
+            <div className="project-description">{project.description}</div>
+          ) : (
+            <p className="project-description">{project.description}</p>
+          )}
+        </div>
+      </div>
+    ) : (
+      <>
+        <div
+          className="project-image-container"
+          onClick={() => openImageModal(project.image)}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="project-image"
+            onError={(e) => {
+              console.error(`Error loading image: ${project.image}`);
+              e.target.style.display = 'none';
+            }}
+          />
+          <div className="image-zoom-hint">
+            <i className="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <div className="project-content">
+          <h2 className="project-title">{project.title}</h2>
+          <p className="project-description">{project.description}</p>
+          <div className="project-tech">
+            {project.technologies &&
+              project.technologies.map((tech, i) => (
+                <span key={i}>{tech}</span>
+              ))}
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+))}
         </div>
       </div>
 
       {selectedImage && (
-        <div 
-          className="image-modal" 
+        <div
+          className="image-modal"
           onClick={closeImageModal}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          <div 
+          <div
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
             ref={modalRef}
           >
-            <img 
-              src={selectedImage} 
-              alt="Project full view" 
+            <img
+              src={selectedImage}
+              alt="Project full view"
               ref={imageRef}
               style={{
                 transform: `scale(${zoomLevel}) translate(${currentPosition.x / zoomLevel}px, ${currentPosition.y / zoomLevel}px)`,

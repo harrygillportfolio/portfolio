@@ -1,43 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import '../Styles/ScrollToTop.css';
+// src/Components/ScrollToTop.js
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      // Calculate half of the document height
-      const halfPageHeight = document.documentElement.scrollHeight / 2;
-      
-      // Show button only when scrolled more than halfway down the page
-      if (window.pageYOffset > halfPageHeight) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    // Use a timeout to ensure scroll fires after React has painted the new page
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  }, [pathname]);
 
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <button
-      className={`scroll-to-top ${isVisible ? 'visible' : ''}`}
-      onClick={scrollToTop}
-      aria-label="Scroll to top"
-    >
-      <i className="fas fa-arrow-up"></i>
-    </button>
-  );
+  return null;
 };
 
-export default ScrollToTop; 
+export default ScrollToTop;

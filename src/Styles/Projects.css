@@ -1,35 +1,39 @@
 /* Projects Page Styles */
 .projects-page {
   min-height: 100vh;
-  background: var(--bg-color);
+  background: transparent;
   padding-bottom: 4rem;
 }
 
 /* Projects Hero Section */
 .projects-hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: var(--bg-color);
-  position: relative;
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.10);   /* glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
   padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+  overflow: visible;
+  min-height: unset;
+  display: block;
 }
 
-.projects-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(var(--secondary-color-rgb), 0.1) 0%, transparent 50%);
-  animation: gradientShift 10s ease infinite;
+@media (max-width: 600px) {
+  .projects-hero {
+    padding: 4rem 0 1rem 0;
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+  }
 }
+
+
+
 
 .projects-hero .hero-content {
   position: relative;
@@ -37,6 +41,8 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+
 
 /* Add float animation */
 @keyframes float {
@@ -48,26 +54,37 @@
 .projects-hero h1 {
   font-size: 4.5rem;
   font-weight: 800;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(45deg, 
-    var(--primary-color), 
-    var(--secondary-color), 
-    var(--accent-color));
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  animation: float 3s ease-in-out infinite;
+  animation: titleFloat 6s ease-in-out infinite;
   display: inline-block;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
+
+
 
 .projects-hero .hero-subtitle {
   font-size: 1.8rem;
-  color: var(--text-color);
-  opacity: 0.8;
-  margin-bottom: 2rem;
-  position: relative;
+  font-weight: 400;          /* To match .page-subtitle */
+  margin-bottom: 1.5rem;
+  animation: subtitleFloat 6s ease-in-out infinite;
   display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #fff;               /* Make text white */
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-shadow: none;
+  opacity: 0.9;
 }
+
+
 
 /* Projects Section */
 .projects-section {
@@ -78,7 +95,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr; /* Force one column */
   gap: 2rem;
   padding: 2rem;
   max-width: 1200px;
@@ -104,19 +121,36 @@
 .project-image-container {
   position: relative;
   width: 100%;
-  height: 300px;
+  aspect-ratio: 16 / 9; /* 🔥 Ensures media stays 16:9 */
   overflow: hidden;
   border-radius: 15px 15px 0 0;
-  cursor: pointer;
+  background: black;
 }
 
-.project-image {
+.project-image,
+.project-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  background: #0b1222;
+  box-shadow: 0 2px 18px 0 rgba(0,0,0,0.13);
+  pointer-events: auto;
 }
+
+
+.project-content {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
 
 .project-item:hover .project-image {
   transform: scale(1.05);
@@ -248,11 +282,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .projects-hero h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .projects-hero .hero-subtitle {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .projects-section {
@@ -412,5 +446,51 @@
   .zoom-button {
     width: 35px;
     height: 35px;
+  }
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+
+.project-video-container::before,
+.project-video-container::after,
+.project-item::before,
+.project-item::after {
+  pointer-events: none !important;
+}
+
+.project-content a {
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  opacity: 1 !important;
+}
+
+.project-content a:hover {
+  text-decoration: underline;
+}
+
+.project-description a {
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  opacity: 1 !important;
+}
+
+/* Ensure projects-page and hero are pushed below navbar */
+
+/* Desktop (and default) */
+.projects-page,
+.projects-hero {
+  padding-top: 4rem; /* <-- Adjust if your navbar is taller/shorter */
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .projects-page,
+  .projects-hero {
+    padding-top: 4rem !important;
   }
 }

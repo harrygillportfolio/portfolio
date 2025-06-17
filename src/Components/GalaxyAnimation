@@ -1,0 +1,35 @@
+// GalaxyAnimation.jsx
+import React, { useEffect, useRef } from 'react';
+import '../galaxy/main'; // This pulls in the animation logic
+
+const GalaxyAnimation = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    // Attach the animation to the canvas
+    window.initiateGalaxyCanvas(canvasRef.current);
+
+    // Cleanup on unmount if needed
+    return () => {
+      window.cancelGalaxyAnimation && window.cancelGalaxyAnimation();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      id="galaxy-canvas"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: -1,
+        width: '100vw',
+        height: '100vh',
+        background: '#000'
+      }}
+    />
+  );
+};
+
+export default GalaxyAnimation;

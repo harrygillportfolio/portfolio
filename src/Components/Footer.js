@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="footer-grid">
             <div className="footer-about">
               <h3 className="footer-title">Summary</h3>
-              <p>I'm a Computer Science student with a passion for building impactful digital experiences and solving real-world problems through innovative software solutions. I thrive at the intersection of creativity and technology, constantly seeking opportunities to turn ideas into user-focused applications.</p>
+              <p>I'm a Marketing and Entrepreneurship graduate with a proven ability to build brands, lead creative teams, and deliver digital experiences that drive measurable growth. With experience founding a marketing agency and directing high-impact campaigns for content brands, I thrive at the intersection of strategy and storytelling. I’m passionate about creating content that resonates, growing communities, and solving business challenges through bold, data-informed ideas.</p>
             </div>
 
             <div className="footer-nav">
@@ -21,7 +21,7 @@ const Footer = () => {
               <ul className="footer-links">
                 <li><a href="/"><i className="fas fa-home"></i>Home</a></li>
                 <li><a href="/about"><i className="fas fa-user"></i>About</a></li>
-                <li><a href="/projects"><i className="fas fa-code"></i>Projects</a></li>
+                <li><a href="/projects"><i className="fas fa-folder-open"></i> Creations</a></li>
                 <li><a href="/contact"><i className="fas fa-envelope"></i>Contact</a></li>
               </ul>
             </div>
@@ -31,15 +31,17 @@ const Footer = () => {
               <ul className="contact-info">
                 <li>
                   <i className="fas fa-envelope"></i>
-                  <a href="mailto:meharvir.randhawa@outlook.com">meharvir.randhawa@outlook.com</a>
+                  <a href="mailto:hsgill2@asu.edu">hsgill2@asu.edu</a>
                 </li>
                 <li>
-                  <i className="fas fa-phone"></i>
-                  <a href="tel:+5108268380">+1 (510) 826-8380</a>
-                </li>
+  <i className="fab fa-linkedin"></i>
+  <a href="https://www.linkedin.com/in/gill-harry/" target="_blank" rel="noopener noreferrer">
+    My LinkedIn
+  </a>
+</li>
                 <li>
                   <i className="fas fa-map-marker-alt"></i>
-                  <span>Charlotte, NC, USA</span>
+                  <span>Phoenix, AZ, USA</span>
                 </li>
               </ul>
             </div>
@@ -51,10 +53,10 @@ const Footer = () => {
         <div className="container">
           <ScrollReveal delay={300}>
             <p className="copyright">
-              &copy; {currentYear} Meharvir Randhawa. All Rights Reserved.
+              &copy; {currentYear} Harry Gill. All Rights Reserved.
             </p>
             <p className="credit">
-              Designed & Built with <i className="fas fa-heart pulse"></i> by Meharvir Randhawa
+              Designed with <i className="fas fa-heart pulse"></i> by Harry Gill with the help of my friend Meharvir Randhawa.
             </p>
           </ScrollReveal>
         </div>

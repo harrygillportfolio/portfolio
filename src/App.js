@@ -10,7 +10,6 @@ import ScrollToTop from './Components/ScrollToTop';
 import ScrollProgress from './Components/ScrollProgress';
 import RandomThemeButton from './Components/ThemeToggle';
 import Particles from './Components/Particles';
-import ResumeChat from './Components/ResumeChat';
 import EasterEgg from './Components/EasterEgg';
 import SpotifyWidget from './Components/SpotifyWidget';
 import { ThemeProvider } from './context/ThemeContext';
@@ -29,7 +28,6 @@ function App() {
         <ScrollProgress />
         <RandomThemeButton />
         <Particles density={100} />
-        <ResumeChat />
         <SpotifyWidget />
         <EasterEgg />
         <div className="app">
@@ -51,5 +49,8 @@ function App() {
     </ThemeProvider>
   );
 }
+
+
+
 
 export default App; 

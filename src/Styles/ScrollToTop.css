@@ -1,6 +1,6 @@
 .scroll-to-top {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px; /* moved lower */
   left: 50%;
   transform: translateX(-50%) translateY(20px) scale(0.9);
   width: 50px;
@@ -55,7 +55,7 @@
   .scroll-to-top {
     width: 40px;
     height: 40px;
-    bottom: 70px;
+    bottom: 20px; /* moved lower on mobile too */
     font-size: 1rem;
   }
-} 
+}

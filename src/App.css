@@ -434,31 +434,6 @@ html {
   }
 }
 
-/* Hero section styles for all pages */
-.about-hero,
-.projects-hero,
-.contact-hero,
-.home-hero {
-  padding-top: 8rem;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    padding-top: 4rem;
-  }
-  
-  .about-hero,
-  .projects-hero,
-  .contact-hero,
-  .home-hero {
-    padding-top: 6rem;
-    min-height: 80vh;
-  }
-}
 
 /* Footer styles */
 .footer {
@@ -489,3 +464,4 @@ html {
 .footer-links a:hover {
   color: var(--primary-color);
 }
+

@@ -12,15 +12,20 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Global Styles */
 .about-page {
   min-height: 100vh;
-  background: var(--bg-color);
-  padding: 6rem 0;
+  background: transparent;
+  padding-top: 6rem;    /* <- This line is key! */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0;
   position: relative;
   overflow: hidden;
-  padding-top: 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+
 
 /* Hero Section */
 .about-hero {
@@ -122,33 +127,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-.hero-subtitle::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    var(--primary-color), 
-    var(--secondary-color), 
-    var(--accent-color));
-  border-radius: 3px;
-  animation: lineReveal 1s ease forwards 1s;
-  animation-fill-mode: both;
-}
 
-@keyframes lineReveal {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 100px;
-    opacity: 1;
-  }
-}
 
 .hero-description {
   font-size: 1.2rem;
@@ -263,7 +242,9 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-page {
-    padding: 0 1rem;
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .hobbies-grid {
@@ -493,7 +474,6 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  cursor: pointer;
 }
 
 .hobby-item:hover {
@@ -710,7 +690,6 @@ html {
 /* Add hover effects for interactive elements */
 .leadership-item, .certification-item {
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .leadership-item:hover, .certification-item:hover {
@@ -1287,11 +1266,14 @@ html {
   z-index: 0;
 }
 
+
 .about-section:hover::before, .education-section:hover::before, .leadership-section:hover::before,
 .hobbies-section:hover::before, .certifications-section:hover::before, .skills-section:hover::before,
 .projects-section:hover::before {
   opacity: 1;
 }
+
+
 
 /* Enhanced Education Items */
 .education-item {
@@ -2153,29 +2135,41 @@ html {
 
 /* Title Tab Section */
 .title-tab {
-  position: relative;
-  width: 100%;
-  background: rgba(26, 26, 26, 0.95);
-  padding: 4rem 0;
-  margin-bottom: 4rem;
-  border-bottom: 3px solid var(--primary-color);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.10);   /* Slightly more visible */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;                      /* <-- Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.20); /* <-- Border all around */
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;                       /* Needed for ::before */
 }
+
+@media (max-width: 600px) {
+  .title-tab {
+    padding: 1rem 0 2rem 0;
+    margin-top: 7%;
+    margin-bottom: 2rem;
+    
+  }
+  .title-content {
+    padding: 0 1rem;
+  }
+}
+
 
 .title-tab::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(45deg, 
     rgba(var(--primary-color-rgb), 0.1),
     rgba(var(--secondary-color-rgb), 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 20px;                     /* Rounded corners for overlay too */
+  z-index: 0;
 }
 
 .title-tab:hover::before {
@@ -2195,6 +2189,8 @@ html {
   gap: 1.5rem;
 }
 
+
+
 .page-title {
   font-size: 4.5rem;
   font-weight: 800;
@@ -2213,7 +2209,6 @@ html {
   color: var(--text-color);
   opacity: 0.9;
   animation: subtitleFloat 6s ease-in-out infinite;
-  animation-delay: 0.3s;
   display: inline-block;
   margin: 0;
   font-weight: 400;
@@ -2244,27 +2239,290 @@ html {
 }
 
 @media (max-width: 768px) {
-  .title-tab {
-    padding: 3rem 0;
-  }
 
   .page-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .page-subtitle {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
-
-  .leadership-content {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center items horizontally */
-    text-align: center;     /* Center text */
-    margin: 0 auto;        /* Center the entire block */
-    max-width: 600px;      /* Optional: Set a max width */
-    width: 100%;           /* Ensure it takes full width */
-}
 
 }
   
+.volunteering-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-left: 1rem;
+  list-style: none; /* <- this removes the browser default bullets */
+}
+
+.volunteering-content li {
+  flex: 1 1 250px;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.volunteering-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.experience-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.experience-content li {
+  flex: 1 1 250px;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.experience-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.title-blur-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  z-index: 2;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .about-page,
+  .about-hero,
+  .about-content,
+  .about-section,
+  .education-section,
+  .leadership-section,
+  .hobbies-section,
+  .certifications-section,
+  .skills-section,
+  .projects-section,
+  .future-goals-section,
+  .volunteering-section,
+  .experience-section,
+  .title-tab,
+  .title-content,
+  .section-header,
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  .about-hero {
+    padding: 2.5rem 0.5rem !important;
+  }
+
+  .title-tab {
+    padding: 1.2rem 0 !important;
+    margin-top: 2% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .title-content {
+    padding: 0 0.5rem !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+  }
+
+  /* Title & Subtitle font scaling */
+  .page-title,
+  .about-hero h1 {
+    font-size: 2.1rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .page-subtitle,
+  .about-hero .subtitle,
+  .hero-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Section paddings */
+  .about-section,
+  .education-section,
+  .leadership-section,
+  .hobbies-section,
+  .certifications-section,
+  .skills-section,
+  .projects-section,
+  .future-goals-section,
+  .volunteering-section,
+  .experience-section {
+    padding: 1.2rem 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Grids become 1 column */
+  .hobbies-grid,
+  .certifications-grid,
+  .skills-grid,
+  .projects-grid,
+  .experience-grid,
+  .volunteering-grid,
+  .languages-grid,
+  .future-goals-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Items padding */
+  .hobby-item,
+  .certification-item,
+  .skill-category,
+  .project-item,
+  .experience-item,
+  .volunteering-item,
+  .language-item,
+  .future-goals-item {
+    padding: 1rem !important;
+  }
+
+  /* Smaller section headers */
+  .section-header h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+
+  /* Remove/minimize box-shadows for less clutter on small screens */
+  .about-section,
+  .education-section,
+  .leadership-section,
+  .hobbies-section,
+  .certifications-section,
+  .skills-section,
+  .projects-section,
+  .future-goals-section,
+  .volunteering-section,
+  .experience-section,
+  .title-tab,
+  .title-blur-box {
+    box-shadow: none !important;
+  }
+}
+
+
+/* Desktop: */
+.about-page,
+.about-section,
+.about-hero {
+  padding-top: 4rem; /* Set to your navbar's real height */
+}
+
+
+@media (max-width: 600px) {
+  .about-page,
+  .about-section,
+  .about-hero,
+  .about-content,
+  .education-section,
+  .leadership-section,
+  .hobbies-section,
+  .certifications-section,
+  .skills-section,
+  .projects-section,
+  .future-goals-section,
+  .volunteering-section,
+  .experience-section,
+  .title-tab,
+  .title-content {
+    padding-top: 4rem !important; /* <-- Tweak this to match navbar height */
+  }
+}
+
+
+/* FORCE vertical and horizontal centering for hero/title section */
+.title-tab {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 340px !important;      /* Adjust if your box is too tall/short */
+  text-align: center !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding-top: 0rem !important;       /* Navbar height */
+  padding-bottom: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.title-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+/* For mobile: shorter min-height, less top padding */
+@media (max-width: 600px) {
+  .title-tab {
+    min-height: 100px !important;
+    padding-top: 4rem !important;    /* Navbar height for mobile */
+    padding-bottom: 0 !important;
+  }
+}
+
+.title-tab {
+  /* Centering styles from before */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 340px !important;
+  text-align: center !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding-top: 0rem !important;
+  padding-bottom: 0 !important;
+  margin: 0 auto 4rem auto !important;  /* <-- THIS adds spacing below */
+  box-sizing: border-box !important;
+}
+@media (max-width: 600px) {
+  .title-tab {
+    min-height: 200px !important;
+    margin-bottom: 2rem !important;
+  }
+}
